@@ -1,0 +1,18 @@
+version: "2"
+services:
+  mcp-server:
+    image: "node:latest"
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./:/home/node/app
+    stdin_open: true  # Keep stdin open
+    tty: true        # Allocate a pseudo-TTY
+    command: >
+      bash -c "
+        npm install &&
+        npm run build &&
+        npm run start
+      "
