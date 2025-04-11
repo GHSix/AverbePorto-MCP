@@ -45,7 +45,7 @@ O AverbePorto-MCP é um servidor MCP (Model Context Protocol) que permite a inte
    ```
 2. Ao iniciar a conversa, o servidor MCP será automaticamente iniciado com base na configuração.
 
-### Github Copilot
+### [Github Copilot](https://github.com/features/copilot)
 1. Com o Github Copilot ativo em seu editor, crie o arquivo `.vscode/mcp.json`:
    ```json
    {
