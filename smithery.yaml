@@ -1,0 +1,31 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - averbeportoUser
+      - averbeportoPass
+    properties:
+      averbeportoUser:
+        type: string
+        description: AverbePorto API Username
+      averbeportoPass:
+        type: string
+        description: AverbePorto API Password
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'node',
+      args: ['build/index.js'],
+      env: {
+        AVERBEPORTO_USER: config.averbeportoUser,
+        AVERBEPORTO_PASS: config.averbeportoPass
+      }
+    })
+  exampleConfig:
+    averbeportoUser: dummyUser@example.com
+    averbeportoPass: dummyPassword123
