@@ -1,5 +1,7 @@
 # AverbePorto-MCP
 
+[![smithery badge](https://smithery.ai/badge/@GHSix/averbeporto-mcp)](https://smithery.ai/server/@GHSix/averbeporto-mcp)
+
 ## 🌟 Sobre
 O AverbePorto-MCP é um servidor MCP (Model Context Protocol) que permite a integração com a plataforma [AverbePorto](https://www.averbeporto.com.br), facilitando o acesso aos serviços de autenticação e envio de documentos através de ferramentas de IA (Inteligência Artificial).
 
@@ -14,6 +16,14 @@ O AverbePorto-MCP é um servidor MCP (Model Context Protocol) que permite a inte
    - Acompanhar e gerenciar suas averbações de seguros de carga
 
 ## 🤖 Utilizando o MCP Server com Ferramentas de IA
+
+### Instalação pelo Smithery
+
+Para instalar averbeporto-mcp para Claude Desktop automaticamente via [Smithery](https://smithery.ai/server/@GHSix/averbeporto-mcp):
+
+```bash
+npx -y @smithery/cli install @GHSix/averbeporto-mcp --client claude
+```
 
 ### [Claude Desktop](https://claude.ai/download)
 1. Edite o arquivo `%APPDATA%\Claude\claude_desktop_config.json` (Windows) ou `~/Library/Application Support/Claude/claude_desktop_config.json` (MacOS) e adicione a seguinte configuração:
