@@ -1,25 +1,22 @@
 {
-  "inputs": [
-    {
-      "type": "promptString",
-      "id": "averbeporto-user",
-      "description": "AverbePorto API Username"
-    },
-    {
-      "type": "promptString",
-      "id": "averbeporto-pass",
-      "description": "AverbePorto API Password",
-      "password": true
-    }
-  ],
   "mcpServers": {
     "AverbePorto-MCP": {
       "command": "node",
-      "args": ["/var/apps/AverbePorto-MCP/build/index.js"],
+      "args": [
+        "/var/apps/AverbePorto-MCP/build/index.js"
+      ],
       "env": {
         "AVERBEPORTO_USER": "${input:averbeporto-user}",
         "AVERBEPORTO_PASS": "${input:averbeporto-pass}"
-      }
+      },
+      "disabled": false,
+      "alwaysAllow": [
+        "login",
+        "consultProtocol",
+        "upload",
+        "retrieveDocument",
+        "decomposeKey"
+      ]
     }
   }
 }
