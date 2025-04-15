@@ -48,7 +48,13 @@ npx -y @smithery/cli install @GHSix/averbeporto-mcp --client claude
           "command": "node",
           "args": ["/caminho/para/AverbePorto-MCP/build/index.js"],
           "disabled": false,
-          "alwaysAllow": []
+          "alwaysAllow": [
+            "login",
+            "consultProtocol",
+            "upload",
+            "retrieveDocument",
+            "decomposeKey"
+          ]
         }
       }
     }
@@ -101,10 +107,25 @@ O AverbePorto-MCP oferece as seguintes ferramentas:
 
 - `upload`: Envio de documentos
   - Parâmetros: `sessionId`, `filePath`, `recipient` (opcional), `version` (opcional)
+  - Retorna: `uploadId`
 
 - `consultProtocol`: Consulta de protocolos por chave ou vice-versa
   - Parâmetros: `sessionId`, `keys`, `protocols`, `outputFormat`, `download`, `delimiter`
   - Formatos de saída: json, xml, csv
+
+- `retrieveDocument`: Consulta de documentos enviados
+  - Parâmetros:
+    - `sessionId`: ID da sessão obtido no login.
+    - `modDoc`: Tipo de documento (e.g., DI, MDF-e, CT-e, NF-e, Minuta CT-e).
+    - `dtStart` e `dtLimit`: Datas de início e fim no formato `YYYY-MM-DD`.
+    - `dtType`: Tipo de data (Update, Emission, Send), padrão é `Send`.
+    - Filtros opcionais: `numDoc`, `emit`, `rem`, `exped`, `receb`, `dest`, `toma`, `importador`, `representante`, `prot`, `taxId`.
+    - Paginação: `page`, `start`, `limit`.
+    - Outros: `relation`, `modal`, `valid`.
+
+- `decomposeKey`: Decomposição de chaves para análise
+  - Parâmetros:
+    - `key`: Chave de acesso de 44 dígitos para NF-e, CT-e ou MDF-e.
 
 ## 🔒 Segurança
 - Utilize as credenciais de API geradas no módulo Cadastro do Usuário
